@@ -1,0 +1,35 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "qa interview",
+  "main": "index.js",
+  "scripts": {
+    "cypress:info": "cypress info",
+    "cypress:verify": "cypress verify",
+    "cypress:version": "cypress version",
+    "lint": "eslint examples",
+    "lint:json": "eslint --ext .json examples",
+    "start": "echo Call npm start from each example subfolder!",
+    "stop-only": "stop-only --folder examples --skip node_modules --skip dist --skip .cache --skip build",
+    "test:ci": "node ./test-examples",
+    "test:ci:brave": "node ./test-examples --brave",
+    "test:ci:chrome": "node ./test-examples --chrome",
+    "test:ci:chrome:headless": "node ./test-examples --chrome --headless",
+    "test:ci:firefox": "node ./test-examples --firefox",
+    "warn-only": "stop-only --warn --folder examples --skip node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gulmira123/QA-Interview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gulmira123/QA-Interview/issues"
+  },
+  "homepage": "https://github.com/Gulmira123/QA-Interview#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "cypress": "^12.5.1"
+  }
+}

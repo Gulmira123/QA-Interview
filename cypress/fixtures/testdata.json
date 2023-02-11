@@ -1,0 +1,12 @@
+{
+  "firstname": "joe",
+  "lastname": "doe",
+  "email": "gulmirea@gmail.com",
+  "password":"Abc1234!",
+  "ssn": "123456789",
+  "dob": "01/01/1977",
+  "address": "12345 abcstreet",
+  "city": "Santa Clarita",
+  "zipCode": "91387"
+}
+
