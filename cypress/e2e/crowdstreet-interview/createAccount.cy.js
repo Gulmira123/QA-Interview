@@ -59,7 +59,7 @@ describe('Navigate the sales app ', () => {
     cy.get('li[role="option"]').contains("United States of America")
     .click();
     cy.get('#zipCode').type(data.zipCode);
-    cy.get('#user-profile-has-regulatory-associations-false').click();
+    cy.get('#user-profile-has-regulatory-associations-true').click();
 
     cy.get('input[type="file"]').attachFile(p);
     cy.get('div[data-testid="id-doc-0-status"]').should
