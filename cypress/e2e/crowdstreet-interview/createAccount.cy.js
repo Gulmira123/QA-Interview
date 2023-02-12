@@ -21,24 +21,22 @@ describe('Navigate the sales app ', () => {
     cy.get('input[name="confirmPassword"]').type(data.password);
     cy.get('#accreditedYes').click();
     cy.get('#hasAgreedTos').click();
-    Cypress.Commands.add('confirmCaptcha', function () {
-      cy.get('iframe')
-        .first()
-        .then((recaptchaIframe) => {
-          const body = recaptchaIframe.contents()
-          cy.wrap(body).find('.recaptcha-checkbox-border').should('be.visible').click()
-        })
-    })
+    cy.wait(10000);
+    cy.get('iframe')
+     .first()
+     .then((recaptchaIframe) => {
+     const body = recaptchaIframe.contents()
+     cy.wrap(body).find('div.recaptcha-checkbox-border').should('be.visible').click();
+     });
+    cy.get('#recaptcha-token').should('be.checked');
+    cy.get('button[data-testid="submit-button"]').click();
+    cy.wait(10000);
     cy.get('.leading-4').click();
-    cy.wait(30000);
-    cy.get('.leading-4').click();
-    cy.reload();
-    cy.wait(50000);
-    cy.get('.leading-4 border-b').click();
+    cy.get('.leading-4 border-b',{ timeout: 20000 }).click();
     cy.get('.head-link').then(($el) => {
       expect($el).to.include.text(data.firstname)
       });
-  })
+  });
 
   it('Complete the profile in my account', () => {
     const p = 'TestImage.JPG';
@@ -71,7 +69,8 @@ describe('Navigate the sales app ', () => {
     cy.on ('window:alert', stub)
     cy.get('button[data-testid="submit-button"]').click()
       .then(() => {
-    expect(stub).to.be.calledWith('Information successfully updated')
-    })      
-  })  
-})
+         expect(stub).to.be.calledWith('Information successfully updated')
+      });      
+    });  
+  })
+
